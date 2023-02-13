@@ -1,0 +1,89 @@
+.search-input input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 13px 19px;
+  font-family: Roboto-Regular,Helvetica,sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #212121;
+  border: none;
+  outline: none;
+  background: #eff0f5;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.search-input button {
+  width: 45px;
+  height: 45px;
+  text-indent: -9999px;
+  border: none;
+  border-radius: 0 2px 2px 0;
+  outline: none;
+  background: #F57229 url(https://nohat.cc/f/preamps-white-search-icon-svg/m2i8G6H7d3d3H7K9-201907231552.html) 50% no-repeat;
+  background-size: 22px;
+  box-shadow: none;
+  cursor: pointer;
+  left: calc(100% - 45px);
+}
+
+
+.cart-icon {
+  background-image: url(../assets/icon-cart.png);
+  background-size: cover;
+  width: 29px;
+  height: 26px;
+  left: 50%;
+  top: 50%;
+  margin: -12px 0 0 -14px;
+
+}
+
+.lzd-cart {
+  display: inline-block;
+  height: 38px;
+  width: 40px;
+  position: relative;
+  margin: 0 0 0 20px;
+}
+
+.cart-icon {
+  position: absolute;
+  background-image: url(../assets/icon-cart.png);
+  background-size: cover;
+  width: 29px;
+  height: 26px;
+  left: 50%;
+  top: 50%;
+  margin: -12px 0 0 -14px;
+}
+
+.lzd-header-banner {
+  width: 188px;
+  height: 45px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  .lzd-header-banner,
+  .logo,
+  .lzd-cart {
+    display: none !important;
+  }
+
+  .react-multi-carousel-track li {
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .search-wrapper {
+    padding: 10px 0
+  }
+
+  .search-input {
+    border-radius: 25px;
+    overflow: hidden;
+  }
+}

@@ -1,91 +1,89 @@
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import { productsData, categoriesData } from "./utils/data";
+import Link from 'next/link'
+import banner from './assets/banner.png'
+import footerBanner from './assets/footer_banner.png'
+
+import Header from './components/Header'
+import Search from './components/Search'
+import ProductList from './components/ProductList';
+import './custom.css'
+import Footer from './components/Footer';
+import Carrousel from './components/Carrousel';
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
+    <div className="wrapper">
+      <Link className="header-banner block w-full" href="#">
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className="w-full"
+          src={banner}
+          alt="Banner of new feature"
         />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
+      </Link>
+      <Header/>
+      <Search/>
+      <Carrousel />
+      <ul className="category flex justify-between pt-5 pb-5">
+        <li className="w-1/4 p-2">
+          <Link className="category-link is-mall flex items-center md:pl-10" href="#">LazMall</Link>
+        </li>
+        <li className="w-1/4 p-2">
+          <Link className="category-link is-voucher flex items-center md:pl-10" href="#">Voucher</Link>
+        </li>
+        <li className="w-1/4 p-2">
+          <Link className="category-link is-topup flex items-center md:pl-10" href="#">Top Up & eCoupon</Link>
+        </li>
+        <li className="w-1/4 p-2">
+          <Link className="category-link is-lazglobal flex items-center md:pl-10" href="#">LazGlobal</Link>
+        </li>
+      </ul>
+      <div className="content md:max-2xl:pt-2 md:max-2xl:pb-2">
+        <h2 className="section-title">Flash sale</h2>
+          <ProductList products={productsData}/>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="content md:max-2xl:pt-2 md:max-2xl:pb-2">
+        <h2 className="section-title">Categories</h2>
+          <ul className="flex flex-wrap justify-start categories-list">
+            {categoriesData.map((category) => (
+              <li className="w-1/6 p-2">
+                <Link href={`/category/${category.permalink}`} key={ category.id}>
+                  <Image src={category.images.domain} alt={category.name}/>
+                  <p>{category.name}</p>
+              </Link>
+              </li>
+            ))}
+          </ul>
       </div>
-    </main>
+      <div className="content md:max-2xl:pt-2 md:max-2xl:pb-2">
+        <h2 className="section-title">Just for you</h2>
+          <ProductList products={productsData}/>
+      </div>
+      <div className='footer-banner'>
+        <ul className="flex">
+          <li className="md:max-2xl:w-1/3 pr-1 pl-1">
+            <Link href="#">
+              <Image className='w-full' src={footerBanner} alt="Voucher" />
+            </Link>
+          </li>
+          <li className="md:w-1/3 pr-1 pl-1">
+            <Link href="#">
+              <Image className='w-full' src={footerBanner} alt="Voucher" />
+            </Link>
+          </li>
+          <li className="md:w-1/3 pr-2 pl-2">
+            <Link href="#">
+              <Image className='w-full' src={footerBanner} alt="Voucher" />
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <Footer />
+    </div>
   )
 }

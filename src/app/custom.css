@@ -1,0 +1,98 @@
+body {
+  padding-top: 0;
+}
+
+.category-link {
+  position: relative;
+}
+
+.category-link:before {
+  position: absolute;
+  content: '';
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.category-link.is-mall:before {
+  background-image: url(./assets/lazmall_icon.png);
+}
+.category-link.is-voucher:before {
+  background-image: url(./assets/voucher_icon.png);
+}
+.category-link.is-topup:before {
+  background-image: url(./assets/topup_icon.png);
+}
+.category-link.is-lazglobal:before {
+  background-image: url(./assets/lazglobal_icon.png);
+}
+
+.section-title {
+  font-size: 22px;
+  color: #424242;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.categories-list {
+  background: #fff;
+}
+
+.categories-list li {
+  border-right: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+@media screen and (min-width: 768px) {
+  .category-link {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    margin-right: 12px;
+    border-radius: 20px;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 16px;
+  }
+  
+  .header-banner {
+    display: none !important;
+  }
+
+  .category-link {
+    font-size: 12px;
+    padding-top: 40px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .category-link:before {
+    top: 0;
+    transform: translate(-50%, 0);
+    left: 50%;
+    width: 36px;
+    height: 36px;
+  }
+
+  .categories-list li {
+    width: 50%;
+  }
+
+  .footer-banner ul {
+    flex-direction: column;
+  }
+  .footer-banner ul {
+    flex-direction: column;
+  }
+}
