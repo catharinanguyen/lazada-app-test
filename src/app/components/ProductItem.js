@@ -1,17 +1,26 @@
+'use client';
+
 import Image from 'next/image';
-import Link from 'next/link';
+import GraphCMSImageLoader from './ImgLoader';
 
 const ProductItem = ({ product }) => {
+
+  let vnd = Intl.NumberFormat('vi', {
+    style: 'currency',
+    currency: 'VND',
+  });
+
   return (
     <div className="product">
       <div className="product-img-wrapper">
-        <div>
+        <div className="flex justify-center items-center">
           <Image
+            loader={GraphCMSImageLoader}
             alt={product.name}
             className="img-responsive product-img"
-            src={product.images["loaderFile"]}
-            width="200"
-            height="200" 
+            src={product.image}
+            width="300"
+            height="300"
             />
         </div>
       </div>
@@ -24,10 +33,10 @@ const ProductItem = ({ product }) => {
         </div>
       </h4>
       <div className="pull-right h4 product-price">
-        {`đ${product.price}`}
+        {`${vnd.format(product.price)}`}
       </div>
       <div className="pull-right h4 product-price-origin">
-        <s>{`đ${product.originPrice}`}</s>
+        <s>{`${vnd.format(product.originPrice)}`}</s>
       </div>
     </div>
   );

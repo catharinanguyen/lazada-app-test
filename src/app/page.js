@@ -11,6 +11,7 @@ import ProductList from './components/ProductList';
 import './custom.css'
 import Footer from './components/Footer';
 import Carrousel from './components/Carrousel';
+import Categories from './components/Categories';
 
 
 
@@ -31,35 +32,23 @@ export default function Home() {
       <Carrousel />
       <ul className="category flex justify-between pt-5 pb-5">
         <li className="w-1/4 p-2">
-          <Link className="category-link is-mall flex items-center md:pl-10" href="#">LazMall</Link>
+          <Link className="category-link hover-common-style is-mall flex items-center md:pl-10" href="#">LazMall</Link>
         </li>
         <li className="w-1/4 p-2">
-          <Link className="category-link is-voucher flex items-center md:pl-10" href="#">Voucher</Link>
+          <Link className="category-link hover-common-style is-voucher flex items-center md:pl-10" href="#">Voucher</Link>
         </li>
         <li className="w-1/4 p-2">
-          <Link className="category-link is-topup flex items-center md:pl-10" href="#">Top Up & eCoupon</Link>
+          <Link className="category-link hover-common-style is-topup flex items-center md:pl-10" href="#">Top Up & eCoupon</Link>
         </li>
         <li className="w-1/4 p-2">
-          <Link className="category-link is-lazglobal flex items-center md:pl-10" href="#">LazGlobal</Link>
+          <Link className="category-link hover-common-style is-lazglobal flex items-center md:pl-10" href="#">LazGlobal</Link>
         </li>
       </ul>
       <div className="content md:max-2xl:pt-2 md:max-2xl:pb-2">
         <h2 className="section-title">Flash sale</h2>
           <ProductList products={productsData}/>
       </div>
-      <div className="content md:max-2xl:pt-2 md:max-2xl:pb-2">
-        <h2 className="section-title">Categories</h2>
-          <ul className="flex flex-wrap justify-start categories-list">
-            {categoriesData.map((category) => (
-              <li className="w-1/6 p-2">
-                <Link href={`/category/${category.permalink}`} key={ category.id}>
-                  <Image src={category.images.domain} alt={category.name}/>
-                  <p>{category.name}</p>
-              </Link>
-              </li>
-            ))}
-          </ul>
-      </div>
+      <Categories />
       <div className="content md:max-2xl:pt-2 md:max-2xl:pb-2">
         <h2 className="section-title">Just for you</h2>
           <ProductList products={productsData}/>

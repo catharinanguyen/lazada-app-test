@@ -4,6 +4,7 @@ body {
 
 .category-link {
   position: relative;
+  transition: box-shadow ease-in-out .4s
 }
 
 .category-link:before {
@@ -50,6 +51,10 @@ body {
   border-bottom: 1px solid #e2e2e2;
 }
 
+.hover-common-style:hover {
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
+}
+
 @media screen and (min-width: 768px) {
   .category-link {
     width: 100%;
@@ -65,7 +70,7 @@ body {
   .wrapper {
     padding: 0 16px;
   }
-  
+
   .header-banner {
     display: none !important;
   }
